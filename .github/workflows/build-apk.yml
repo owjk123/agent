@@ -2,10 +2,12 @@ name: Build Android APK
 
 on:
   push:
-    branches: [main]
+    branches: [master, main]
   pull_request:
-    branches: [main]
+    branches: [master, main]
   workflow_dispatch:
+  repository_dispatch:
+    types: [build-apk]
 
 jobs:
   build-debug:
@@ -58,7 +60,7 @@ jobs:
 
   build-release:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     needs: build-debug
 
     steps:

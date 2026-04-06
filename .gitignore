@@ -44,3 +44,10 @@ coverage/
 
 # Capacitor config (user-specific)
 capacitor.config.ts  # if it contains local paths
+
+# InkOS core dependencies
+inkos-core/node_modules/
+inkos-core/dist/
+inkos-core/.turbo/
+inkos-core/packages/*/dist/
+inkos-core/packages/*/.turbo/
